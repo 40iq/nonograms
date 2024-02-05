@@ -1,0 +1,71 @@
+.menu {
+  min-height: 70vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5vh;
+  align-items: center;
+}
+
+.menu__button {
+  width: 70vw;
+  height: 10vh;
+  border: 0;
+  border-top-right-radius: 300px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 300px;
+  max-height: 50px;
+  min-height: 20px;
+  min-width: 120px;
+  max-width: 400px;
+  font-size: 1.5em;
+  transition: 0.3s;
+  box-shadow: 5px 5px 10px 1px white;
+  background-color: #ffffffa8;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: -5px -5px 10px 1px white;
+    }
+  }
+}
+
+.menu__button_disabled {
+  cursor: auto;
+  background-color: rgba(128, 128, 128, 0.329);
+  box-shadow: 5px 5px 10px 1px black;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 5px 5px 10px 1px black;
+    }
+  }
+}
+
+.night-mode {
+  .menu__button {
+    box-shadow: 5px 5px 10px 1px black;
+    background-color: #242424a8;
+    color: white;
+
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: -5px -5px 10px 1px black;
+      }
+    }
+  }
+
+  .menu__button_disabled {
+    background-color: rgba(94, 94, 94, 0.329);
+    box-shadow: 5px 5px 10px 1px white;
+
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: 5px 5px 10px 1px white;
+      }
+    }
+  }
+}
