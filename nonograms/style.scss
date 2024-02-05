@@ -1,0 +1,47 @@
+@import 'src/styles/abstracts/reset.scss';
+@import 'src/styles/abstracts/constants.scss';
+@import 'src/styles/layouts/header.scss';
+@import 'src/styles/layouts/footer.scss';
+@import 'src/styles/layouts/main-menu.scss';
+@import 'src/styles/layouts/new-game.scss';
+@import 'src/styles/layouts/game.scss';
+@import 'src/styles/layouts/game-modal.scss';
+@import 'src/styles/layouts/records.scss';
+@import 'src/styles/layouts/settings.scss';
+
+*,
+html {
+  font-family: 'Protest Revolution', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1280px;
+  background: #fff url(src/assets/gif/gif-day.gif) no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.main__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.body {
+  background: #fff url(src/assets/img/bg-sunrice.jpg) no-repeat;
+  background-size: cover;
+}
+
+.night-mode {
+  background: #fff url(src/assets/img/bg-night.jpg) no-repeat;
+  background-size: cover;
+  & .container {
+    background: #fff url(src/assets/gif/gif-night.gif) no-repeat;
+    background-size: cover;
+  }
+}

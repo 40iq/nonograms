@@ -1,0 +1,363 @@
+.game {
+  overflow: hidden;
+  position: relative;
+  min-width: 80%;
+  min-height: 500px;
+  max-height: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: #0000004b;
+  border-radius: 50px;
+  gap: 50px;
+  padding: 30px;
+  transition: 0.2s;
+  @media (max-width: 500px) {
+    padding: 15px 0;
+  }
+}
+
+.game__header {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.game__timer {
+  display: block;
+  font-size: 1.5em;
+  user-select: none;
+  transition: 0.2s;
+  @media (max-width: 500px) {
+    font-size: 1.2em;
+  }
+}
+
+.game__button-menu {
+  z-index: 1;
+  width: 30%;
+  max-width: 150px;
+  min-width: 75px;
+  border: none;
+  user-select: none;
+  border-top-right-radius: 300px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 300px;
+  font-size: 1.5em;
+  transition: 0.3s;
+  box-shadow: 5px 5px 10px 1px black;
+  background-color: #ffffffa8;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: -5px -5px 10px 1px white;
+    }
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.2em;
+  }
+}
+
+.game__result-window {
+  display: block;
+  width: 100%;
+  height: inherit;
+  border: 2px solid #d4d4d4;
+}
+
+.game__field-container {
+  display: flex;
+  min-height: 500px;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game__field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.game__field_top,
+.game__field_bottom {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+.game__field_top {
+  width: 100%;
+}
+
+.game__hints_cols {
+  display: flex;
+  flex-direction: row;
+}
+
+.hints__row {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #d4d4d4;
+  &:last-child {
+    border-bottom: 2px solid #d4d4d4;
+  }
+  &:nth-child(5n + 1) {
+    border-top: 2px solid #d4d4d4;
+  }
+}
+
+.hints__cell_row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  box-sizing: content-box;
+  max-width: 30px;
+  min-width: 20px;
+  min-height: 20px;
+  max-height: 30px;
+  width: 2vw;
+  height: 2vw;
+  border-left: 1px solid #d4d4d4;
+  background-color: #ffdf86;
+  &:last-child {
+    border-right: 2px solid #d4d4d4;
+  }
+  &:nth-child(5n + 1) {
+    border-left: 2px solid #d4d4d4;
+  }
+}
+
+.hints__col {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #d4d4d4;
+  &:last-child {
+    border-right: 2px solid #d4d4d4;
+  }
+  &:nth-child(5n + 1) {
+    border-left: 2px solid #d4d4d4;
+  }
+}
+
+.hints__cell_col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  box-sizing: content-box;
+  max-width: 30px;
+  min-width: 20px;
+  min-height: 20px;
+  max-height: 30px;
+  width: 2vw;
+  height: 2vw;
+  border-top: 1px solid #d4d4d4;
+  background-color: #ffdf86;
+  &:last-child {
+    border-bottom: 2px solid #d4d4d4;
+  }
+  &:nth-child(5n + 1) {
+    border-top: 2px solid #d4d4d4;
+  }
+}
+
+.game__cells-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #d4d4d4;
+  &:last-child {
+    border-bottom: 2px solid #d4d4d4;
+  }
+  &:nth-child(5n + 1) {
+    border-top: 2px solid #d4d4d4;
+  }
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  box-sizing: content-box;
+  max-width: 30px;
+  min-width: 20px;
+  min-height: 20px;
+  max-height: 30px;
+  width: 2vw;
+  height: 2vw;
+  background-color: white;
+  border-left: 1px solid #d4d4d4;
+  &:last-child {
+    border-right: 2px solid #d4d4d4;
+  }
+  &:nth-child(5n + 1) {
+    border-left: 2px solid #d4d4d4;
+  }
+}
+
+.game__burger-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.game__burger {
+  position: absolute;
+  top: 15%;
+  right: 0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: #0000004b;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: inherit;
+  transform: translateX(100%);
+}
+
+.burger__button {
+  width: 15vw;
+  max-width: 200px;
+  min-width: 150px;
+  font-size: 1.3em;
+  border: none;
+  user-select: none;
+  border-top-right-radius: 300px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 300px;
+  font-size: 1.5em;
+  transition: 0.3s;
+  box-shadow: 5px 5px 10px 1px black;
+  background-color: #ffffffa8;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: -5px -5px 10px 1px white;
+    }
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.2em;
+  }
+}
+
+.burger_active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  & .game__burger {
+    transform: translate(0);
+  }
+}
+
+.painted {
+  background-color: black;
+}
+
+.crossed {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    transform: rotate(45deg);
+    background-color: black;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    transform: rotate(-45deg);
+    background-color: black;
+  }
+}
+
+.night-mode {
+  .game {
+    background-color: rgba(0, 0, 0, 0.658);
+  }
+
+  .game__header {
+    color: white;
+  }
+
+  .game__button-menu {
+    box-shadow: 5px 5px 10px 1px white;
+    background-color: #6b6b6b69;
+    color: white;
+
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: -5px -5px 10px 1px white;
+      }
+    }
+  }
+
+  .hints__cell_col,
+  .hints__cell_row {
+    background-color: #97cae480;
+  }
+
+  .cell {
+    background-color: black;
+  }
+
+  .game__burger {
+    background-color: #cccccc4b;
+  }
+
+  .burger__button {
+    box-shadow: 5px 5px 10px 1px white;
+    background-color: #474747a8;
+    color: white;
+
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: -5px -5px 10px 1px black;
+      }
+    }
+  }
+
+  .painted {
+    background-color: white;
+  }
+
+  .crossed {
+    &::after,
+    &::before {
+      background-color: white;
+    }
+  }
+}

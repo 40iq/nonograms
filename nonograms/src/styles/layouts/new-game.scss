@@ -1,0 +1,192 @@
+.new-game {
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 10px 1px white;
+  min-height: 70vh;
+  padding: 20px 10px;
+  height: 100%;
+  width: 90%;
+  max-width: 768px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4vh;
+  align-items: center;
+  overflow: hidden;
+  & input {
+    display: none;
+  }
+  &:has(#random:checked) .new-game__level {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.new-game__title {
+  font-size: 2em;
+}
+
+.new-game__difficulty {
+  padding: 10px 50px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.difficulty__label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  & span {
+    font-size: 1.5em;
+    transition: 0.5s;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    @media (max-width: 600px) {
+      font-size: 1.2em;
+    }
+  }
+  & input:checked ~ .input__span {
+    background-color: rgb(100, 255, 113);
+  }
+  & input:checked ~ span {
+    color: white;
+  }
+  @media (hover: hover) {
+    &:hover {
+      color: white;
+      .input__span {
+        background-color: white;
+      }
+    }
+  }
+}
+
+.input__span {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background-color: rgb(255, 52, 52);
+  border: 2px solid black;
+}
+
+.new-game__level {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.4s;
+  opacity: 1;
+  visibility: visible;
+  @media (max-width: 600px) {
+    max-width: 330px;
+    min-width: 310px;
+  }
+}
+
+.level__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #757575e0;
+  box-shadow: 0 0 3px 1px #ffffffe0;
+  transition: 0.5s;
+  font-size: 1.5em;
+  user-select: none;
+  @media (max-width: 600px) {
+    width: 70px;
+    height: 35px;
+    font-size: 1em;
+  }
+  &:has(.level__input:checked) {
+    background-color: #ffffffe0;
+    box-shadow: 0 0 15px 3px #4542ffe0;
+  }
+}
+
+.new-game__buttons-container {
+  margin-top: 50px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.new-game__button {
+  width: 50%;
+  max-width: 250px;
+  min-width: 100px;
+  height: 50px;
+  border: 0;
+  border-top-right-radius: 300px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 300px;
+  font-size: 1.5em;
+  transition: 0.3s;
+  box-shadow: 5px 5px 10px 1px black;
+  background-color: #ffffffa8;
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: -5px -5px 10px 1px white;
+    }
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.1em;
+  }
+}
+
+.night-mode {
+  .new-game {
+    background-color: rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 10px 1px black;
+  }
+
+  .new-game__title {
+    color: white;
+  }
+
+  .new-game__difficulty {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .level__label {
+    background-color: #757575e0;
+    box-shadow: 0 0 3px 1px #000000e0;
+
+    &:has(.level__input:checked) {
+      background-color: #3d3d3de0;
+      box-shadow: 0 0 15px 3px #42ff42e0;
+      color: white;
+    }
+  }
+
+  .new-game__button {
+    box-shadow: 5px 5px 10px 1px rgb(255, 255, 255);
+    background-color: #3a3a3aa8;
+    color: white;
+
+    @media (hover: hover) {
+      &:hover {
+        box-shadow: -5px -5px 10px 1px white;
+      }
+    }
+  }
+}
